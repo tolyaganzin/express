@@ -16,6 +16,7 @@
   "author": "Tolya",
   "license": "ISC",
   "dependencies": {
+    "body-parser": "^1.15.2",
     "express": "^4.14.0",
     "helmet": "^2.1.2",
     "jade": "^1.11.0"
