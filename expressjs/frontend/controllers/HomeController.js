@@ -5,6 +5,8 @@ myApp.controller('HomeController',function($scope){
       };
         $scope.data={visible : true};
     $scope.setFile = function () { return 'templates/home.html';};
+
+
     $scope.Home = function (){
         $scope.contentpage.summary='Home';
         $scope.setFile = function () { return 'templates/home.html';};
@@ -13,5 +15,8 @@ myApp.controller('HomeController',function($scope){
         $scope.contentpage.summary='Contact us';
         $scope.setFile = function () { return 'templates/contact_us.html';};
     };
-
+    $scope.ShowContacts = function (){
+        $scope.contentpage.summary='Show contacts';
+        $scope.setFile = function () { return 'templates/all_contacts.html';};
+    };
 });

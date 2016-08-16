@@ -8,14 +8,16 @@
 
   <div class="container" ng-controller="HomeController">
     <div class="btn-group btn-group-justified">
-      <a class="btn btn-primary active" type="button" ng-click="Home()">Home</a>
+      <a class="btn btn-primary " type="button" ng-click="Home()">Home</a>
       <a class="btn btn-primary" type="button" ng-click="ContactUs()">Contact Us</a>
+      <a class="btn btn-primary" type="button" ng-click="ShowContacts()">Show contacts</a>
     </div>
     <div ng-include="setFile()"></div>
   </div>
 
   <script src="libs/angular.js"></script>
   <script src="js/app.js"></script>
+  <script src="controllers/ShowContactsController.js"></script>
   <script src="controllers/ContactController.js"></script>
   <script src="controllers/HomeController.js"></script>
   </body>

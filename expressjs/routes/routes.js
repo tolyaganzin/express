@@ -8,6 +8,26 @@ router.use(function timeLog(req, res, next) {
   next();
 });
 
+router.get('/contacts', function(req, res) {
+  console.log(req.body);
+  var MongoClient = require('mongodb').MongoClient;
+
+  MongoClient.connect('mongodb://localhost:27017/users', function(err, db) {
+    if (err) {
+      res.send(err);
+      throw err;
+    }
+    db.collection('contacts').find().toArray(function(err, result) {
+      if (err) {
+        throw err;
+      }
+      res.send(result);
+      console.log(result);
+    });
+  });
+});
+
+
 router.post('/form', function(req, res) {
   console.log(req.body);
   var MongoClient = require('mongodb').MongoClient;
