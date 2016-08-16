@@ -1,10 +1,9 @@
-
 myApp.controller('HomeController',function($scope){
       $scope.contentpage={
         title:'Roller skills',
         summary:'Home'
       };
-      $scope.data={visible : true};
+        $scope.data={visible : true};
     $scope.setFile = function () { return 'templates/home.html';};
     $scope.Home = function (){
         $scope.contentpage.summary='Home';

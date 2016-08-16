@@ -4,17 +4,40 @@
   <form ng-show="data.visible" role="form" name="contactForm">
     <fieldset>
       <div class="form-group">
-        <label for="contactEmail">Email address:</label>
-        <input type="email" ng-model="contacts.email" class="form-control" required id="contactEmail">
+        <label>Name:</label>
+
+        <div class="form-control" ng-show="contactForm.name.$error.pattern == !contactForm.name.$valid">
+          <span ng-show="contactForm.name.$error.pattern">Name length must be more 2 and less than 20 characters!</span>
+          <span ng-show="contactForm.name.$error.minlength">Too short!</span>
+          <span ng-show="contactForm.name.$error.maxlength">Too long!</span>
+        </div>
+
+        <input type="text" name="name" ng-model="contacts.name" class="form-control" require ng-pattern="/^[а-яА-ЯёЁa-zA-Z][а-яА-ЯёЁa-zA-Z0-9-_\.]{1,20}$/" ng-minlength="2" ng-maxlength="21">
+
       </div>
       <div class="form-group">
-        <label for="contactPhone">Phone number:</label>
-        <input type="tel" ng-model="contacts.phone" class="form-control" required id="contactPhone">
+        <label>Phone number:</label>
+
+        <div class="form-control" ng-show="contactForm.phone.$error.pattern == !contactForm.phone.$valid">
+          <span ng-show="contactForm.phone.$error.pattern">Phone number must has 10-12 numbers!</span>
+          <span ng-show="contactForm.phone.$error.minlength">Too short!</span>
+          <span ng-show="contactForm.phone.$error.maxlength">Too long!</span>
+        </div>
+
+        <input type="text" name="phone" ng-model="contacts.phone" class="form-control" require ng-pattern="/^[0-9]{10,12}$/" ng-minlength="10" ng-maxlength="12">
+
       </div>
     </fieldset>
     <div class="form-group ">
+    <!--  <div>
+        phone length? = <code>{{(contactForm.phone).length}}</code><br>
+        phone valid? = <code>{{contactForm.phone.$valid}}</code><br>
+        phone error? = <code>{{!contactForm.phone.$error.pattern}}</code><br>
+        name valid? = <code>{{contactForm.name.$valid}}</code><br>
+        name error? = <code>{{!contactForm.name.$error.pattern}}</code><br>
+      </div>  -->
       <button type="reset" class="btn btn-default btn-block">Reset</button>
-      <button type="submit" class="btn btn-default btn-block" ng-click="save(contacts, contactForm)">Submit</button>
+      <button ng-show="contactForm.phone.$valid == contactForm.name.$valid == !contactForm.phone.$error.pattern == !contactForm.name.$error.pattern" type="submit" class="btn btn-default btn-block" ng-click="save(contacts, contactForm)">Submit</button>
     </div>
   </form>
   <div ng-hide="data.visible" class="panel panel-success">

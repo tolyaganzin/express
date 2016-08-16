@@ -1,0 +1,23 @@
+<!doctype html>
+<html ng-app="myApp">
+  <head>
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="css/bootstrap.css" />
+  </head>
+  <body>
+
+  <div class="container" ng-controller="ContactController1">
+    <div class="btn-group btn-group-justified">
+      <a class="btn btn-primary" type="button">Home</a>
+      <a class="btn btn-primary active" type="button" ng-click="ContactUs()">Contact Us</a>
+    </div>
+    <ng-include src="'../templates/contact_us.html'"></ng-include>
+  </div>
+
+  <script src="../libs/angular.js"></script>
+  <script src="../js/app.js"></script>
+  <script src="../controllers/PresentoContactController.js"></script>
+  <script src="../controllers/ContactController.js"></script>
+
+  </body>
+</html>

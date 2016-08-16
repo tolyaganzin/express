@@ -12,13 +12,13 @@ router.post('/form', function(req, res) {
   console.log(req.body);
   var MongoClient = require('mongodb').MongoClient;
 
-  MongoClient.connect('mongodb://localhost:27017/contacts', function(err, db) {
+  MongoClient.connect('mongodb://localhost:27017/users', function(err, db) {
     if (err) {
       res.send(err);
       throw err;
     }
-    db.collection('checks').insert(req.body);
-    res.send('Waiting for answer please');
+    db.collection('contacts').insert(req.body);
+    res.send('Expect ! We will call you back.');
   });
 });
 

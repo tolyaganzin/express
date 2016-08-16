@@ -19,6 +19,10 @@ app.use('/api', routes);/// routing
 app.get('/', function(req, res) {
   res.sendFile(path.join(__dirname+'/frontend/index.html'));
 });
+app.get('/views/conactUs', function(req, res){
+  res.sendFile(path.join(__dirname+'/frontend/views/contactUs.html'));
+});
+
 
 app.use(express.static('frontend'));
 
