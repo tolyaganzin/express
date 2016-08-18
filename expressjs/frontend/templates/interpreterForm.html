@@ -1,0 +1,8 @@
+<label>Phone number</label>
+<input class="form-control" type="text" name="phone{{$index}}" placeholder="Phone number like this: 0123456789" pattern="[0-9]{10}" ng-model="contacts.phone" required="">
+<div class="form-control" ng-show="!contactForm.phone{{$index}}.$valid">
+    <p class="text-center text-info">Phone number must contains 10 numbers!</p>
+</div>
+<button ng-click="addDellForm($index)" id="btn" type="button" class="btn btn-default btn-block ">
+    <span ng-class="{'glyphicon-minus': !($first), 'glyphicon-plus': $first}" class="glyphicon glyphicon" aria-hidden="true"></span>
+</button>

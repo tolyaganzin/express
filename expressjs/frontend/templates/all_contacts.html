@@ -1,8 +1,27 @@
 <ng-include src="'templates/jumboheader.html'"></ng-include>
 <div ng-controller="ShowContactsController">
-  <div class="panel panel-success">
-    <div class="panel-body text-center ">      
-      <p>{{res}}</p>
+  <div class="panel panel-info">
+    <div class="table-responsive">
+      <table class="table">
+       <thead>
+         <tr>
+           <th>_id</th>
+           <th>Names users</th>
+           <th>Phone numbers</th>
+         </tr>
+       </thead>
+       <tbody>
+         <tr ng-repeat="data in res">
+           <td>{{data._id}}</td>
+           <td>{{data.name}}</td>
+           <td>
+             <ul ng-repeat="phones in data.phones">
+               <li ng-repeat="phone in phones">{{phone}}</li>
+             </ul>
+           </td>
+         </tr>
+       </tbody>
+      </table>
     </div>
   </div>
 </div>
